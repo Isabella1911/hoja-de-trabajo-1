@@ -37,7 +37,7 @@ public class Main {
                 case 3:
                     if (radio.isOn()) {
                         double nuevaEstacion = radio.nextStation();
-                        System.out.println("\nSintonizado en la estación: " + nuevaEstacion);
+                        System.out.println("\nSintonizado en la estación: " + Math.round(nuevaEstacion * 100.0) / 100.0);
                     } else {
                         System.out.println("\nEl radio está apagado. Enciéndelo primero.");
                     }
@@ -46,9 +46,11 @@ public class Main {
                     if (radio.isOn()) {
                         System.out.print("\nIngrese el número del botón (1-12): ");
                         int boton = scanner.nextInt();
+                        // Obtener la emisora actualmente sintonizada
                         double emisoraActual = radio.isAM() ? radio.selectStation(boton) : radio.nextStation();
-                        radio.saveStation(boton, emisoraActual);
-                        System.out.println("\nEmisora guardada en el botón " + boton + "\n");
+                        // Limitar la emisora a dos decimales
+                        radio.saveStation(boton, Math.round(emisoraActual * 100.0) / 100.0);
+                        System.out.println("\nEmisora guardada en el botón " + boton);
                         break;
                     } else {
                         System.out.println("\nEl radio está apagado. Enciéndelo primero.");
