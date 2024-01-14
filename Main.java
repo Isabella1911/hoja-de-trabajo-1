@@ -46,16 +46,21 @@ public class Main {
                     if (radio.isOn()) {
                         System.out.print("\nIngrese el número del botón (1-12): ");
                         int boton = scanner.nextInt();
-                        System.out.print("\nIngrese la frecuencia de la emisora: ");
-                        double frecuencia = scanner.nextDouble();
-                        radio.saveStation(boton, frecuencia);
-                        System.out.println("\nEmisora guardada en el botón " + boton);
+                        double emisoraActual = radio.isAM() ? radio.selectStation(boton) : radio.nextStation();
+                        radio.saveStation(boton, emisoraActual);
+                        System.out.println("\nEmisora guardada en el botón " + boton + "\n");
+                        break;
                     } else {
                         System.out.println("\nEl radio está apagado. Enciéndelo primero.");
                     }
                     break;
                 case 5:
                     if (radio.isOn()) {
+                        System.out.println("\n----- Emisoras Guardadas -----");
+                        for (int i = 0; i < radio.savedStations.length; i++) {
+                            double emisoraGuardada = radio.savedStations[i];
+                            System.out.println("\tBotón " + (i + 1) + ": " + (emisoraGuardada > 0 ? emisoraGuardada : "No guardada"));
+                        }
                         System.out.print("\nIngrese el número del botón (1-12): ");
                         int botonSeleccionado = scanner.nextInt();
                         double emisoraSeleccionada = radio.selectStation(botonSeleccionado);

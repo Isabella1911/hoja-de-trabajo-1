@@ -2,7 +2,7 @@ public class Radio {
     private boolean isOn;
     private boolean isAM;
     private double currentStation;
-    private double[] savedStations;
+    double[] savedStations;
 
     public Radio() {
         isOn = false;
