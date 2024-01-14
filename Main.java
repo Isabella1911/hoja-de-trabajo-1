@@ -7,6 +7,13 @@ public class Main {
 
         int opcion;
         do {
+            // Mostrar información sobre la radiofrecuencia y emisora actual si la radio está encendida
+            // if (radio.isOn()) {
+            //     double emisoraActual = radio.isAM() ? radio.nextStation() : radio.nextStation();
+            //     System.out.print("\n[" + Math.round(emisoraActual * 100.0) / 100.0);
+            //     System.out.print(" | " + (radio.isAM() ? "AM" : "FM") + "]\n");
+            // }
+
             System.out.println("\n----- Radio -----");
             System.out.println("1. Prende el radio");
             System.out.println("2. Cambia de AM a FM o viceversa");
