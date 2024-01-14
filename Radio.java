@@ -31,4 +31,13 @@ public class Radio {
     public void switchOnOff() {
         isOn = !isOn;
     }
+    
+    public void switchAMFM() {
+        isAM = !isAM;
+        if (isAM) {
+            currentStation = 530;  // Primera estación de AM
+        } else {
+            currentStation = 87.9;  //Primera estación de FM
+        }
+    }
 }
