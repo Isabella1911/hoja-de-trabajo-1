@@ -14,4 +14,8 @@ public class Radio {
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
     }
+    
+    public boolean isAM() {
+        return isAM;
+    }
 }
