@@ -7,3 +7,4 @@ public interface IRadio {
     void switchAMFM();
     double nextStation();
 }
+
