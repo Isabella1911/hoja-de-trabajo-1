@@ -10,7 +10,7 @@ public class Radio {
         currentStation = 530;  // Iniciar en la primera estación de AM
         savedStations = new double[12];
     }
-<<<<<<< HEAD
+
 
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
@@ -23,7 +23,12 @@ public class Radio {
     public boolean isOn() {
         return isOn;
     }
+    
+    public double selectStation(int buttonId) {
+        return savedStations[buttonId - 1];
+    }
+
+    public void switchOnOff() {
+        isOn = !isOn;
+    }
 }
-=======
-}
->>>>>>> 48bc772a0bb2b3eeb5ddf1d26d59f4da511bf28a
