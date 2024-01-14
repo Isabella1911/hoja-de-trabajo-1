@@ -18,4 +18,8 @@ public class Radio {
     public boolean isAM() {
         return isAM;
     }
+
+    public boolean isOn() {
+        return isOn;
+    }
 }
