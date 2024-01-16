@@ -54,9 +54,6 @@ public class Radio {
         }
         return currentStation;
     }
-
-    public void saveStation(int buttonId, double station) {
-        savedStations[buttonId - 1] = station;
-    }
+    
 }
 

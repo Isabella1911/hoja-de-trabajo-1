@@ -55,7 +55,6 @@ public class Main {
                         int boton = scanner.nextInt();
                         // Obtener la emisora actualmente sintonizada
                         double emisoraActual = radio.isAM() ? radio.selectStation(boton) : radio.nextStation();
-                        // Limitar la emisora a dos decimales
                         radio.saveStation(boton, Math.round(emisoraActual * 100.0) / 100.0);
                         System.out.println("\nEmisora guardada en el botón " + boton);
                         break;
