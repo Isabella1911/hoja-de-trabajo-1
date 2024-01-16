@@ -10,7 +10,8 @@ public class Radio {
         currentStation = 530;  // Iniciar en la primera estación de AM
         savedStations = new double[12];
     }
-
+  
+  
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
     }
