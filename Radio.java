@@ -11,7 +11,6 @@ public class Radio {
         savedStations = new double[12];
     }
 
-
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
     }
@@ -30,5 +29,9 @@ public class Radio {
 
     public void switchOnOff() {
         isOn = !isOn;
+    }
+
+    public void saveStation(int buttonId, double station) {
+        savedStations[buttonId - 1] = station;
     }
 }
