@@ -31,7 +31,32 @@ public class Radio {
         isOn = !isOn;
     }
 
+    public void switchAMFM() {
+        isAM = !isAM;
+        if (isAM) {
+            currentStation = 530;  // Primera estación de AM
+        } else {
+            currentStation = 87.9;  //Primera estación de FM
+        }
+    }
+
+    public double nextStation() {
+        if (isAM) {
+            currentStation += 10;
+            if (currentStation > 1610) {
+                currentStation = 530;  // Reiniciar al principio del dial de AM
+            }
+        } else {
+            currentStation += 0.2;
+            if (currentStation > 107.9) {
+                currentStation = 87.9;  // Reiniciar al principio del dial de FM
+            }
+        }
+        return currentStation;
+    }
+
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
     }
 }
+
