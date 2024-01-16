@@ -11,7 +11,6 @@ public class Radio {
         savedStations = new double[12];
     }
 
-
     public void saveStation(int buttonId, double station) {
         savedStations[buttonId - 1] = station;
     }
@@ -31,7 +30,7 @@ public class Radio {
     public void switchOnOff() {
         isOn = !isOn;
     }
-    
+
     public void switchAMFM() {
         isAM = !isAM;
         if (isAM) {
@@ -55,4 +54,9 @@ public class Radio {
         }
         return currentStation;
     }
+
+    public void saveStation(int buttonId, double station) {
+        savedStations[buttonId - 1] = station;
+    }
 }
+
