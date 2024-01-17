@@ -1,18 +1,24 @@
-public class Radio {
+public class Radio implements IRadio {
     private boolean isOn;
     private boolean isAM;
     private double currentStation;
-    double[] savedStations;
+    double[] savedStationsAM;
+    double[] savedStationsFM;
 
     public Radio() {
         isOn = false;
         isAM = true; //Iniciar en AM (preguntar)
-        currentStation = 530;  // Iniciar en la primera estación de AM
-        savedStations = new double[12];
+        currentStation = 530.0;
+        savedStationsAM = new double[12];
+        savedStationsFM = new double[12];
     }
 
-    public void saveStation(int buttonId, double station) {
-        savedStations[buttonId - 1] = station;
+    public void saveStation(int buttonID, double station) {
+        if (isAM) {
+            savedStationsAM[buttonID - 1] = station;
+        } else {
+            savedStationsFM[buttonID - 1] = station;
+        }
     }
     
     public boolean isAM() {
@@ -23,8 +29,8 @@ public class Radio {
         return isOn;
     }
     
-    public double selectStation(int buttonId) {
-        return savedStations[buttonId - 1];
+    public double selectStation(int buttonID) {
+        return isAM ? savedStationsAM[buttonID - 1] : savedStationsFM[buttonID - 1];
     }
 
     public void switchOnOff() {
@@ -55,8 +61,5 @@ public class Radio {
         return currentStation;
     }
 
-    public void saveStation(int buttonId, double station) {
-        savedStations[buttonId - 1] = station;
-    }
 }
 
