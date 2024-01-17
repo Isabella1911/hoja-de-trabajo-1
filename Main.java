@@ -54,7 +54,7 @@ public class Main {
                         System.out.print("\nIngrese el número del botón (1-12): ");
                         int boton = scanner.nextInt();
                         // Obtener la emisora actualmente sintonizada
-                        double emisoraActual = radio.isAM() ? radio.selectStation(boton) : radio.nextStation();
+                        double emisoraActual = radio.isAM() ? radio.nextStation() : radio.nextStation();
                         radio.saveStation(boton, Math.round(emisoraActual * 100.0) / 100.0);
                         System.out.println("\nEmisora guardada en el botón " + boton);
                         break;
@@ -62,13 +62,23 @@ public class Main {
                         System.out.println("\nEl radio está apagado. Enciéndelo primero.");
                     }
                     break;
-                case 5:
+                    case 5:
                     if (radio.isOn()) {
                         System.out.println("\n----- Emisoras Guardadas -----");
-                        for (int i = 0; i < radio.savedStations.length; i++) {
-                            double emisoraGuardada = radio.savedStations[i];
-                            System.out.println("\tBotón " + (i + 1) + ": " + (emisoraGuardada > 0 ? emisoraGuardada : "No guardada"));
+                        if (radio.isAM()) {
+                            // Mostrar emisoras guardadas en AM
+                            for (int i = 0; i < radio.savedStationsAM.length; i++) {
+                                double emisoraGuardada = radio.savedStationsAM[i];
+                                System.out.println("\tBotón " + (i + 1) + ": " + (emisoraGuardada > 0 ? emisoraGuardada : "No guardada"));
+                            }
+                        } else {
+                            // Mostrar emisoras guardadas en FM
+                            for (int i = 0; i < radio.savedStationsFM.length; i++) {
+                                double emisoraGuardada = radio.savedStationsFM[i];
+                                System.out.println("\tBotón " + (i + 1) + ": " + (emisoraGuardada > 0 ? emisoraGuardada : "No guardada"));
+                            }
                         }
+                        
                         System.out.print("\nIngrese el número del botón (1-12): ");
                         int botonSeleccionado = scanner.nextInt();
                         double emisoraSeleccionada = radio.selectStation(botonSeleccionado);
