@@ -1,6 +1,9 @@
 import java.util.Scanner;
-
+/**
+ * Clase principal que contiene el método main para ejecutar el programa de control de radio.
+ */
 public class Main {
+
     public static void main(String[] args) {
         Radio radio = new Radio();
         Scanner scanner = new Scanner(System.in);
@@ -13,7 +16,7 @@ public class Main {
             //     System.out.print("\n[" + Math.round(emisoraActual * 100.0) / 100.0);
             //     System.out.print(" | " + (radio.isAM() ? "AM" : "FM") + "]\n");
             // }
-
+            
             System.out.println("\n----- Radio -----");
             System.out.println("1. Prende el radio");
             System.out.println("2. Cambia de AM a FM o viceversa");
