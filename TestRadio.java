@@ -38,8 +38,6 @@ public class TestRadio {
         assertEquals(87.9, radio.nextStation(), 0.01);
     }
 
-    // Puedes agregar más pruebas según sea necesario para cubrir otras funciones
-
     @Test
     public void testSaveAndSelectStation() {
         assertFalse(radio.isOn());
@@ -52,5 +50,15 @@ public class TestRadio {
         radio.switchAMFM();
         radio.saveStation(2, 95.5);
         assertEquals(95.5, radio.selectStation(2), 0.01);
+    }
+    
+    @Test
+    public void testSaveStationWhileOff() {
+        Radio radio = new Radio();
+        assertThrows(IllegalStateException.class, () -> radio.saveStation(1, 100.0));
+        radio.switchOnOff();
+        double emisoraAM = radio.nextStation(); 
+        radio.saveStation(1, emisoraAM);
+        assertEquals(emisoraAM, radio.selectStation(1));
     }
 }
